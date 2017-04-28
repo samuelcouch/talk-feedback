@@ -1,4 +1,5 @@
 import http from 'http'
+import path from 'path'
 import express from 'express'
 import morgan from 'morgan'
 import bodyParser from 'body-parser'
@@ -25,8 +26,10 @@ var firebase_config = {
 
 firebase.initializeApp(firebase_config)
 
+app.use(express.static('static'))
+
 app.get('/', (req, res) => {
-	res.send('all good')
+  res.sendFile(path.resolve(__dirname + '/../public/index.html'))
 })
 
 app.post('/feedback', (req, res) => {
