@@ -10,7 +10,7 @@ class Layout extends React.Component {
           <title>Talk Feedback</title>
           <meta charSet="utf-8" />
           <link rel="stylesheet" href="/css/watson-react-components.min.css" />
-          <link rel="stylesheet" href="/css/react-vis/style.css" />
+          <link rel="stylesheet" href="/css/style.css" />
         </head>
         <body>
           <Jumbotron

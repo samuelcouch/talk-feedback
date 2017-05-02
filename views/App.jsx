@@ -83,6 +83,7 @@ export default class App extends Component {
               <Bar score={(this.state.data.emotional_range/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
             </div>
           </div>
+          <div className="row"></div>
         </div>
       </div>
     )
