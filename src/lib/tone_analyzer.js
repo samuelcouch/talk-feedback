@@ -11,9 +11,7 @@ export function analyze_and_save (message, db, callback) {
     text: message.Body
   }, function (err, tone) {
     if (!err) {
-      db.ref('feedback').push(tone.document_tone.tone_categories, (err) => {
-        callback()
-      })
+      //SAVE IT
     }
   })
 }

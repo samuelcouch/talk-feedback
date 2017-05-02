@@ -20,7 +20,7 @@ class App extends React.Component {
             placeholder="Give some feedback on my talk"
           />
           <XYPlot
-            margin={{bottom: 70}}
+            margin={{top: 70}}
             xType="ordinal"
             width={800}
             height={300}>
