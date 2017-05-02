@@ -34,8 +34,10 @@ export function analyze_and_save (message, callback) {
             emotional_range: total.emotional_range + tones.emotional_range
           }
           return total.update(updated)
+                      .then(() => callback(total.dataValues, null))
+                      .catch((error) => callback({}, error))
         })
-      })
+      }).catch((error) => callback({}, error))
     }
   })
 }
