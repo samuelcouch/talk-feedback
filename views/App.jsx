@@ -9,6 +9,7 @@ export default class App extends Component {
     super(props)
 
     this.state = {
+      error: null,
       data: {
         total: 0,
         anger: 0.0,
@@ -31,13 +32,21 @@ export default class App extends Component {
   componentDidMount() {
     $.post('/api/totals')
     .done((data) => this.setState({ data }))
+    .fail((err) => {
+      this.setState({ error: err })
+    })
   }
 
   onSubmitFeedback(e) {
     let text = e.target.value
     if (text.length > 0) {
       $.post('/feedback', { text })
-      .done((data) => this.setState({ data }))
+      .done((data) => {
+        this.setState({ data })
+      })
+      .fail((err) => {
+        this.setState({ error: err })
+      })
     }
   }
 
@@ -54,8 +63,12 @@ export default class App extends Component {
         <div className="row">
           <h2 className="base--h2">Output:</h2>
           <p>The data below is representative of all responses. The Watson Tone Analyzer
-          reviews each peice of feedback and assigns a score for each category. Reviewing the
-          scores will give a good indicator of how people felt about the presentation. 
+          reviews each peice of feedback and assigns a score for each category. By reviewing the scores
+          we are able to quickly assess the tone of the corwd – did they love it?
+          </p>
+          <p>
+            Scores of > 50 indicate a tone is likely present.
+            Scores of > 75 indicate that the tone is very likely present.
           </p>
           <div className="row">
             <div>
