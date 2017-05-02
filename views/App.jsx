@@ -61,14 +61,14 @@ export default class App extends Component {
           />
         </div>
         <div className="row">
-          <h2 className="base--h2">Output:</h2>
+          <h2 className="base--h2">Output from {this.state.data.total} {(this.state.data.total === 1)? 'response':'responses'}:</h2>
           <p>The data below is representative of all responses. The Watson Tone Analyzer
           reviews each peice of feedback and assigns a score for each category. By reviewing the scores
           we are able to quickly assess the tone of the corwd – did they love it?
           </p>
           <p>
-            Scores of > 50 indicate a tone is likely present.
-            Scores of > 75 indicate that the tone is very likely present.
+            Scores of > 50 indicate a tone is likely present and scores of > 75 indicate that the tone is <strong>very likely</strong> present.
+            Anything less than 50 is most likely not present.
           </p>
           <div className="row">
             <div>
