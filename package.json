@@ -5,7 +5,7 @@
   "description": "Get categoric feedback on your talks",
   "main": "dist",
   "scripts": {
-    "dev": "webpack && nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "dev": "nodemon --exec \"babel-node src --presets es2015,stage-0\"",
     "now-build": "babel src -s -D -d dist --presets es2015,stage-0",
     "now-start": "node dist",
     "prestart": "npm run -s build",
@@ -32,18 +32,25 @@
   "author": "Sam Couch <sam@couch.rocks>",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
     "body-parser": "^1.17.1",
     "compression": "^1.5.2",
     "cors": "^2.7.1",
     "express": "^4.13.3",
+    "express-browserify": "^1.0.2",
+    "express-react-views": "^0.10.2",
     "firebase": "^3.9.0",
     "micro": "^7.3.2",
     "morgan": "^1.8.0",
     "react": "^15.5.4",
+    "react-addons-shallow-compare": ">=15.4.2",
     "react-dom": "^15.5.4",
+    "react-vis": "^2.0.0-beta.4",
     "resource-router-middleware": "^0.6.0",
     "twilio": "^2.11.1",
-    "watson-developer-cloud": "^2.29.0"
+    "watson-developer-cloud": "^2.29.0",
+    "watson-react-components": "^0.6.7"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
