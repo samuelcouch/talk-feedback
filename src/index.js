@@ -14,7 +14,9 @@ app.get('/', (req, res) => {
 })
 
 app.post('/feedback', (req, res) => {
-	res.send('OK')
+  analyze_and_save(req.body.text, () => {
+    res.send(200)
+  })
 })
 
 app.server.listen(process.env.PORT, () => {

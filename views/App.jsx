@@ -2,12 +2,14 @@ import React, { Component, PropTypes } from 'react'
 import $ from 'jquery'
 
 import { InputWithButton } from 'watson-react-components'
+import Bar from 'watson-react-components/dist/components/Bar'
 
 import {
   XYPlot,
   XAxis,
   YAxis,
   VerticalGridLines,
+  HorizontalBarSeries,
   HorizontalGridLines,
   VerticalBarSeries
 } from 'react-vis'
@@ -21,44 +23,33 @@ export default class App extends Component {
     }
   }
 
-  onSubmitFeedback() {
-    console.log('okokokok')
+  onSubmitFeedback(e) {
+    let text = e.target.value
+    if (text.length > 0) {
+      $.post('/feedback', { text }).done((data) => this.setState({ data }))
+    }
   }
 
   render() {
     return (
       <div className="_container _container_large">
         <div className="row">
+          <h2 className="base--h2">Leave some feedback</h2>
           <InputWithButton
-            onSubmit={this.onSubmitFeedback}
-            placeholder="Input some text here"
+            onSubmit={this.onSubmitFeedback.bind(this)}
+            placeholder="Tell me your thoughts..."
           />
-          <XYPlot
-            margin={{top: 70}}
-            xType="ordinal"
-            width={800}
-            height={300}>
-            <VerticalGridLines />
-            <HorizontalGridLines />
-            <XAxis tickLabelAngle={-45} />
-            <YAxis />
-            <VerticalBarSeries
-              data={[
-                {x: 'Apples', y: 12},
-                {x: 'Bananas', y: 2},
-                {x: 'Cranberries', y: 11},
-                {x: 'test', y: 1 },
-                {x: 'test1', y: 1 },
-                {x: 'test2', y: 1 },
-                {x: 'test3', y: 1 },
-                {x: 'test4', y: 1 },
-                {x: 'test5', y: 1 },
-                {x: 'test6', y: 1 },
-                {x: 'test7', y: 1 },
-                {x: 'test8', y: 1 },
-                {x: 'test9', y: 1 }
-              ]}/>
-          </XYPlot>
+        </div>
+        <div className="row">
+          <h2 className="base--h2">Output</h2>
+          <div className="row">
+            <div>
+              <p>emotional_range</p>
+              <Bar score={-25} rangeStart={-100} rangeEnd={100} />
+              <p>emotional_range</p>
+              <Bar score={-25} rangeStart={-100} rangeEnd={100} />
+            </div>
+          </div>
         </div>
       </div>
     )
