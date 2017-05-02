@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import $ from 'jquery'
+
 import { InputWithButton } from 'watson-react-components'
+
 import {
   XYPlot,
   XAxis,
@@ -9,15 +12,26 @@ import {
   VerticalBarSeries
 } from 'react-vis'
 
-class App extends React.Component {
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      data: null,
+    }
+  }
+
+  onSubmitFeedback() {
+    console.log('okokokok')
+  }
+
   render() {
     return (
       <div className="_container _container_large">
         <div className="row">
           <InputWithButton
-            onSubmit={(e) => {
-            }}
-            placeholder="Give some feedback on my talk"
+            onSubmit={this.onSubmitFeedback}
+            placeholder="Input some text here"
           />
           <XYPlot
             margin={{top: 70}}
@@ -42,19 +56,11 @@ class App extends React.Component {
                 {x: 'test6', y: 1 },
                 {x: 'test7', y: 1 },
                 {x: 'test8', y: 1 },
-                {x: 'test9', y: 1 },
-                {x: 'test0', y: 1 },
-                {x: 'test11', y: 1 },
-                {x: 'test22', y: 1 },
-                {x: 'test33', y: 1 },
-                {x: 'test44', y: 1 },
-                {x: 'test55', y: 1 }
+                {x: 'test9', y: 1 }
               ]}/>
           </XYPlot>
         </div>
       </div>
-    );
+    )
   }
-};
-
-export default App
+}

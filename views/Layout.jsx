@@ -22,7 +22,7 @@ class Layout extends React.Component {
             startInBluemix={null}
             description={DESCRIPTION}
           />
-          <div id="app_root">
+          <div id="root">
             {this.props.children}
           </div>
           <script type="text/javascript" src="js/bundle.js" />
