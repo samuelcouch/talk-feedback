@@ -52,34 +52,38 @@ export default class App extends Component {
           />
         </div>
         <div className="row">
-          <h2 className="base--h2">Output</h2>
+          <h2 className="base--h2">Output:</h2>
+          <p>The data below is representative of all responses. The Watson Tone Analyzer
+          reviews each peice of feedback and assigns a score for each category. Reviewing the
+          scores will give a good indicator of how people felt about the presentation. 
+          </p>
           <div className="row">
             <div>
               <p>Anger</p>
               <Bar score={(this.state.data.anger/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
               <p>Disgust</p>
               <Bar score={(this.state.data.disgust/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>fear</p>
+              <p>Fear</p>
               <Bar score={(this.state.data.fear/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>joy</p>
+              <p>Joy</p>
               <Bar score={(this.state.data.joy/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>sadness</p>
+              <p>Sadness</p>
               <Bar score={(this.state.data.sadness/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>analytical</p>
+              <p>Analytical</p>
               <Bar score={(this.state.data.analytical/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>confident</p>
+              <p>Confident</p>
               <Bar score={(this.state.data.confident/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>tentative</p>
+              <p>Tentative</p>
               <Bar score={(this.state.data.tentative/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>openness</p>
+              <p>Openness</p>
               <Bar score={(this.state.data.openness/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>conscientiousness</p>
+              <p>Conscientiousness</p>
               <Bar score={(this.state.data.conscientiousness/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>extraversion</p>
+              <p>Extraversion</p>
               <Bar score={(this.state.data.extraversion/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>agreeableness</p>
+              <p>Agreeableness</p>
               <Bar score={(this.state.data.agreeableness/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
-              <p>emotional_range</p>
+              <p>Emotional Range</p>
               <Bar score={(this.state.data.emotional_range/this.state.data.total)*100} rangeStart={0} rangeEnd={100} />
             </div>
           </div>
